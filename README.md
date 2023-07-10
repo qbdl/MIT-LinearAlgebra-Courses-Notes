@@ -1,7 +1,7 @@
 # MIT-LinearAlgebra-Courses-Notes ![redis](https://img.shields.io/badge/qbdl-MIT%20LinearAlgebra%20Courses%20Notes-green?logo=Github)
 线性代数MIT课程个人学习笔记
 
-参考[麻省理工公开课：线性代数](https://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html)课程以及**[MIT-Linear-Algebra-Notes](https://github.com/MLNLP-World/MIT-Linear-Algebra-Notes)**部分笔记内容，结合个人学习理解完成，目的在于对知识的总结与反刍。
+参考[麻省理工公开课：线性代数](https://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html)课程以及[MIT-Linear-Algebra-Notes](https://github.com/MLNLP-World/MIT-Linear-Algebra-Notes)部分笔记内容，结合个人学习理解完成，目的在于对知识的总结与反刍。
 
 
 
