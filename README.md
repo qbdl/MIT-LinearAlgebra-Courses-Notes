@@ -13,7 +13,7 @@
 
 #### 使用说明：
 
-使用下面命令克隆笔记，详尽笔记见`线性代数MIT笔记.md/pdf`
+使用下面命令克隆笔记，详尽笔记见`线性代数MIT笔记.pdf`
 
 ```powershell
 git clone https://github.com/qbdl/MIT-LinearAlgebra-Courses-Notes.git
