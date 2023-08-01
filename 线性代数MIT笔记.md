@@ -1,3 +1,5 @@
+
+
 # 线性代数MIT笔记
 
 [TOC]
@@ -1204,5 +1206,91 @@ $$
 
 
 
-### 22、
+### 22、对角化，幂运算与差分方程
+
+#### 对角化
+
+$$
+\begin{align*}
+
+& \quad 设S为矩阵A的特征向量（列向量）构成的向量组，那么有AS=A(x_1,x_2,x_3,...,x_n)=（λ_1x_1 , λ_2x_2 , ... , λ_nx_n）\\
+& =（x_1,x_2,...,x_n)
+\left(\begin{matrix}
+ λ_1 &  &  &  \\
+  & λ_2 &  &  \\
+  &  & .. &  \\
+  &  &  &  λ_n\\
+\end{matrix}\right)
+（利用列对列进行分配）\\
+& =S \land \\
+& \quad 假设S可逆，即A的特征向量为\textbf{线性无关的特征向量组}，则有A=S \land S^{-1},其中\land 为特征值构成的对角矩阵。
+
+\end{align*}
+$$
+
+
+
+#### 幂运算
+
+- 幂运算计算特性
+
+$$
+\begin{align*}
+
+&\textbf{幂运算计算特性:}\\
+& \quad 当A的特征向量为\textbf{线性无关的特征向量组}，有A=S \land S^{-1}，易得A^k=S \land^k S^{-1}.\\
+& \quad 通过Ax=λx,则A^2x=λAx=λ^2x,即A^2的特征值为λ^2，显然这对于更高阶也成立，即A^k的特征值为λ^k.\\
+
+
+
+\end{align*}
+$$
+
+
+
+- 一个小推导
+
+$$
+\begin{align*}
+&\textbf{一个小推导：}\\
+& \quad 当A的特征向量为线性无关的特征向量组，什么时候当k\to+\infty，A^k\to 0?\\
+&求解：\\
+&\quad 因为A^k=S \land^k S^{-1}\to 0，所以\land^k\to 0，而\land^k=
+\left(\begin{matrix}
+ λ_1^k &  &  &  \\
+  & λ_2^k &  &  \\
+  &  & .. &  \\
+  &  &  &  λ_n^k\\
+\end{matrix}\right)
+（利用列对列进行分配）\\
+& \quad 所以，所有|𝜆_𝑖|均<1。
+
+\end{align*}
+$$
+
+
+
+- 另一个小定理：
+
+​		<img src="./assets/image-20230801193207517.png" alt="image-20230801193207517" style="zoom: 80%;" />
+
+
+
+#### 差分方程
+
+<img src="./assets/image-20230801194319198.png" alt="image-20230801194319198" style="zoom: 67%;" />
+
+##### 差分方程具体应用：特征值对应增长率
+
+<img src="./assets/image-20230801194453504.png" alt="image-20230801194453504" style="zoom:80%;" />
+
+<img src="./assets/image-20230801194506817.png" alt="image-20230801194506817" style="zoom:80%;" />
+
+<img src="./assets/image-20230801194518928.png" alt="image-20230801194518928" style="zoom:80%;" />
+
+<img src="./assets/image-20230801194539810.png" alt="image-20230801194539810" style="zoom:80%;" />
+
+
+
+### 23、微分方程
 
