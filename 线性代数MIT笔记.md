@@ -1086,7 +1086,45 @@ $$
 
 ​									<img src="./assets/image-20230731133629431.png" alt="image-20230731133629431" style="zoom: 80%;" /><img src="./assets/image-20230731133641229.png" alt="image-20230731133641229" style="zoom:80%;" />
 
+- **一些其他性质**：
+
+  <img src="./assets/image-20230731184802295.png" alt="image-20230731184802295" style="zoom:80%;" />
+
+  <img src="./assets/image-20230731184858259.png" alt="image-20230731184858259" style="zoom: 60%;" />
+
+<img src="./assets/image-20230731185825858.png" alt="image-20230731185825858" style="zoom: 67%;" />
+
+### 20、行列式的应用：克莱姆法则、逆矩阵、体积
+
+#### 逆矩阵另一计算公式：
+
+<img src="./assets/image-20230731190003194.png" alt="image-20230731190003194" style="zoom:67%;" />
+
+#### 克莱姆(Cramer)法则：
+
+另一种求解线性方程组Ax=b的方式。（形式好看但不实用）
+
+证明：
+
+<img src="./assets/image-20230801085544794.png" alt="image-20230801085544794" style="zoom:80%;" />
+
+<img src="./assets/image-20230801085604768.png" alt="image-20230801085604768" style="zoom:90%;" />
 
 
-### 20、克莱姆法则、逆矩阵、体积
+
+#### 行列式的几何意义：体积
+
+目前证明二维和三维的情况，更高维的期待后续有新的直观方法证明，目前还不太会orz.
+
+<img src="./assets/image-20230801091116025.png" alt="image-20230801091116025" style="zoom:67%;" />
+
+<img src="./assets/image-20230801091138595.png" alt="image-20230801091138595" style="zoom: 67%;" />
+
+<img src="./assets/image-20230801091155962.png" alt="image-20230801091155962" style="zoom:67%;" />
+
+<img src="./assets/image-20230801091212137.png" alt="image-20230801091212137" style="zoom:67%;" />
+
+
+
+### 21、特征值、特征向量
 
