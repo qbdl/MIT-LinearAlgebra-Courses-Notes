@@ -904,7 +904,7 @@ $$
 
 <img src="./assets/image-20230720195943651.png" alt="image-20230720195943651" style="zoom:67%;" />
 
-当Q为方阵时，有Q^T=Q^(-1)
+当Q为方阵时，有Q^ T=Q ^(-1)
 
 
 
@@ -1621,3 +1621,214 @@ $$
 
 
 ### 27、复数矩阵与快速傅里叶变换
+
+#### 复数矩阵
+
+项中含复数的矩阵
+$$
+为了兼容实数的定义，仍想使用z z^T来定义模长，结果发现不成立，观察发现应为{\bar{z}}^Tz,
+于是引入新的记号H,将{\bar{z}}^Tz记作z^Hz,即定义\\
+x^Hy={\bar{x}}^Ty
+$$
+于是，对应扩展了复数矩阵的模长，对称，内积公式。
+$$
+\textbf{模长}: \sqrt{z^Hz},即\sqrt{{\bar{z}}^Tz}\\
+\textbf{对称}: z^H=z,即{\bar{z}}^T=z\\
+\textbf{内积}: <x,y>=x^Hy={\bar{x}}^Ty
+$$
+
+
+ 同样类比，有
+$$
+\begin{align*}
+
+& \quad \textbf{标准正交基}:
+{\bar{q_i}}^Tq_j = 
+\begin{cases} 
+1 & \text{if } i = j  \\
+0 & \text{if } i \neq j 
+\end{cases}
+\\
+& 而这一组标准正交基可以构成一个矩阵Q，
+Q=\left(\begin{matrix}
+ q_1 & q_2 & q_3 & … & … & q_n（q是列向量）
+\end{matrix}\right)
+,此时有\\
+& I= Q^HQ，而此时Q叫作\textbf{酉矩阵(unitary matrix)}。
+
+\end{align*}
+$$
+
+
+
+
+#### 傅里叶变换矩阵与快速傅里叶变换
+
+##### 傅里叶矩阵——一个特殊的标准正交复矩阵(酉矩阵)
+
+$$
+\begin{align*}
+&\textbf{定义}:\\ 
+& \quad  傅里叶矩阵𝐹_n=
+\frac{1}{\sqrt{n}}
+\left(\begin{matrix}
+ 1 & 1 & 1& ... & 1\\
+ 1 & w &  w^2 & ... & w^{n-1}\\
+ 1 & w^2 & w^4 & ... & w^{2(n-1)}\\
+ ... & ... & ... & ... & ... \\
+ 1 & w^{n-1} & w^{2(n-1)} & ... & w^{(n-1)^2}\\
+\end{matrix}\right)(计数从0开始,到n-1结束)，其中𝑤^𝑛(实际应记作w_n^n)=1\\
+
+&\textbf{一些推导}:\\
+& \quad 利用复数本身的性质可以知道，e^i在实虚数轴上表示逆时针旋转i的角度在单位圆上的对应位置，所以e^{2\pi i}=1，\\
+& \quad 又因为w^n=1=e^{2\pi i}，所以w(实际应记作w_n,下标n表示使用的单位根w是满足 w^n = 1的复数)=e^{i \frac{2\pi}{n}}。\\ \\
+
+&\textbf{性质}:\\
+&\quad 1、各列正交(w^k与w^j两列，并利用w^k=e^{i \frac{2\pi}{n}k},\bar{w^k}=e^{-i \frac{2\pi}{n}k},利用内积公式与等比数列求和公式计算可得)\\
+&\quad 2、各列长度为1(利用模长公式计算)\\
+&\quad 3、{F_n}^{-1}={F_n}^H（将F_n记作
+\left(\begin{matrix}
+ {F_{1}} & {F_{2}} & ... & {F_{n}}\\
+\end{matrix}\right)
+，利用{F_n}{F_n}^H
+=
+\left(\begin{matrix}
+ {F_{1}} & {F_{2}} & ... & {F_{n}}\\
+\end{matrix}\right)
+
+\left(\begin{matrix}
+ {\bar{F_{1}}} \\
+ {\bar{F_{2}}} \\
+  ... \\
+  {\bar{F_{n}}}\\
+\end{matrix}\right)
+=
+\left(\begin{matrix}
+ {1} & {0} & ... & {0}\\
+ {0} & {1} & ... & {0}\\
+ ..  &  .. &  .. &  ..\\
+ {0} & {0} & ... & {1}\\
+\end{matrix}\right)
+=I
+）
+\\
+&\quad 4、对于F_{\frac{n}{2}},先观察各表达式，\\
+& F_2(2阶傅里叶矩阵)，其单位根w_2=e^{2\pi i/2}。
+F_2 = \frac{1}{\sqrt{2}}\left(\begin{matrix}
+ 1 & 1 \\
+ 1 & w_2^2 \\
+\end{matrix}\right),
+\\
+& F_4(4阶傅里叶矩阵)，其单位根w_4=e^{2\pi i/4}。
+F_4 = \frac{1}{\sqrt{4}}\left(\begin{matrix}
+ 1 & 1 & 1 & 1 \\
+ 1 & w_4^1 & w_4^2 & w_4^3 \\
+ 1 & w_4^2 & w_4^4 & w_4^6 \\
+ 1 & w_4^3 & w_4^6 & w_4^9 \\
+\end{matrix}\right),
+\\
+&F_8(8阶傅里叶矩阵)，其单位根w_8=e^{2\pi i/8}。
+F_8 = \frac{1}{\sqrt{8}}\left(\begin{array}{cccccccc}
+ 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+ 1 & w_8 & w_8^2 & w_8^3 & w_8^4 & w_8^5 & w_8^6 & w_8^7 \\
+ 1 & w_8^2 & w_8^4 & w_8^6 & w_8^8 & w_8^{10} & w_8^{12} & w_8^{14} \\
+ 1 & w_8^3 & w_8^6 & w_8^9 & w_8^{12} & w_8^{15} & w_8^{18} & w_8^{21} \\
+ 1 & w_8^4 & w_8^8 & w_8^{12} & w_8^{16} & w_8^{20} & w_8^{24} & w_8^{28} \\
+ 1 & w_8^5 & w_8^{10} & w_8^{15} & w_8^{20} & w_8^{25} & w_8^{30} & w_8^{35} \\
+ 1 & w_8^6 & w_8^{12} & w_8^{18} & w_8^{24} & w_8^{30} & w_8^{36} & w_8^{42} \\
+ 1 & w_8^7 & w_8^{14} & w_8^{21} & w_8^{28} & w_8^{35} & w_8^{42} & w_8^{49} \\
+\end{array}\right),\\
+& 容易写出F_{\frac{n}{2}} = \frac{1}{\sqrt{\frac{n}{2}}}\left(\begin{array}{cccccc}
+ 1 & 1 & 1 & \dots & 1 & 1 \\
+ 1 & w_{\frac{n}{2}}^1 & w_{\frac{n}{2}}^2 & \dots & w_{\frac{n}{2}}^{\frac{n}{2}-2} & w_{\frac{n}{2}}^{\frac{n}{2}-1} \\
+ 1 & w_{\frac{n}{2}}^2 & w_{\frac{n}{2}}^4 & \dots & w_{\frac{n}{2}}^{2(\frac{n}{2}-2)} & w_{\frac{n}{2}}^{2(\frac{n}{2}-1)} \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+ 1 & w_{\frac{n}{2}}^{\frac{n}{2}-2} & w_{\frac{n}{2}}^{2(\frac{n}{2}-2)} & \dots & w_{\frac{n}{2}}^{(\frac{n}{2}-2)(\frac{n}{2}-2)} & w_{\frac{n}{2}}^{(\frac{n}{2}-2)(\frac{n}{2}-1)} \\
+ 1 & w_{\frac{n}{2}}^{\frac{n}{2}-1} & w_{\frac{n}{2}}^{2(\frac{n}{2}-1)} & \dots & w_{\frac{n}{2}}^{(\frac{n}{2}-1)(\frac{n}{2}-2)} & w_{\frac{n}{2}}^{(\frac{n}{2}-1)^2} \\
+\end{array}\right),即只是w变化了，矩阵的规模变化了，其他不变。
+\end{align*}
+$$
+
+
+
+##### 快速傅里叶变换FFT
+
+**起因：**考虑到不同阶Fn之间可能有关系，联系起来可能会**加快离散傅里叶变换(DFT)的计算**
+
+**具体推导方法：**![image-20230809190139021](./assets/image-20230809190139021.png)
+$$
+\begin{align*}
+& \quad \textbf{这里考虑普通未归一化的(差一个系数)}F_n与F_{n/2}的单位根w的关系，可以发现w_{\frac{n}{2}}^1 = e^{\frac{2\pi i}{\frac{n}{2}}} = (e^{\frac{2\pi i}{n}})^2 = w_n^2,所以将F_n分为奇偶行，而由于F_n希望通过F_{\frac{n}{2}}得到，由规模将F_n又分为左右两区。\\
+& \quad \textbf{偶数行左边}= w_n^{2j*k}(列k=0,1,...,\frac{n}{2}-1)=w_{\frac{n}{2}}^{j*k},即对应F_{\frac{n}{2}}的所有行各自对应列，即F_{\frac{n}{2}}\\
+
+& \quad \textbf{偶数行右边}= w_n^{2j*k}(列k=\frac{n}{2},\frac{n}{2}+1,...,n-1)=w_n^{2j*(k-\frac{n}{2}+\frac{n}{2})}=w_n^{2j*(k-\frac{n}{2})}w_n^{2j*\frac{n}{2}}=w_n^{2j*(k-\frac{n}{2})}e^{i\frac{2\pi}{n}jn}=w_n^{2j*(k-\frac{n}{2})}=w_n^{2j*k'}(k'=0,1,...,\frac{n}{2}-1),即F_{\frac{n}{2}}\\
+
+& \quad \textbf{奇数行左边}= w_n^{(2j+1)*k}(j=0,1,...,\frac{n}{2}-1;k=0,1,...,\frac{n}{2}-1)= w_n^{2j*k+k}=w_{\frac{n}{2}}^{j*k}w_n^k,即F_{\frac{n}{2}}D,
+D=\left(\begin{matrix}
+ 1 &  &  &  & \\
+  & w_n^1 &  &  &\\
+  &  & w_n^2 &  &\\
+  &  &  &  \ddots &\\
+  &  &  &  & w_n^{\frac{n}{2}-1} \\
+\end{matrix}\right)(利用列对列进行分配，对列进行放大)
+
+
+\\
+& \quad \textbf{奇数行右边}=w_n^{(2j+1)*k}(j=0,1,...,\frac{n}{2}-1;k=\frac{n}{2},\frac{n}{2}+1,...,n-1)= w_n^{(2j+1)*(k-\frac{n}{2}+\frac{n}{2})}=w_n^{(2j+1)*(k-\frac{n}{2})+(2j+1)*{\frac{n}{2}}}
+\\& \quad \quad \quad \quad \quad 
+=w_n^{(2j+1)*(k-\frac{n}{2})}e^{i\frac{2\pi}{n}\frac{n}{2}(2j+1)}=-w_n^{(2j+1)*(k-\frac{n}{2})}
+=-w_n^{(2j+1)*k'}(k'=0,1,...,\frac{n}{2}-1),即-F_{\frac{n}{2}}D\\
+
+\\& \quad 于是,只需要将F_n调整成按奇偶行归类好的矩阵后即可得到对应表达式，即
+PF_n=
+\left(\begin{matrix}
+ F_{\frac{n}{2}}  & F_{\frac{n}{2}}\\
+ F_{\frac{n}{2}}D & -F_{\frac{n}{2}}D\\
+\end{matrix}\right)
+此时行交换矩阵P(将偶数行0,2,4...全部提前)=
+\left(\begin{matrix}
+ 1  &     &     &     &     &     & ...\\
+    &     &  1  &     &     &     & ...\\
+    &     &     &     & 1   &     & ...\\
+... & ... & ... & ... & ... & ... & ...\\   
+    &  1  &     &     &     &     & ...\\
+    &     &     &  1  &     &     & ...\\
+    &     &     &     &     &  1  & ...\\
+... & ... & ... & ... & ... & ... & ...\\
+\end{matrix}\right)\\
+& \quad 两边同时取转置，{F_n}^TP^T
+=\left(\begin{matrix}
+ {F_{\frac{n}{2}}}^T  & (F_{\frac{n}{2}}D)^T\\
+ {F_{\frac{n}{2}}}^T  & -(F_{\frac{n}{2}}D)^T\\
+\end{matrix}\right),进一步利用F_n与D的对称性,同时P^TP=I(因为P显然为标准正交矩阵)化简得，\\
+& \quad F_n=
+\left(\begin{matrix}
+ F_{\frac{n}{2}}  & DF_{\frac{n}{2}}\\
+ F_{\frac{n}{2}}  & -DF_{\frac{n}{2}}\\
+\end{matrix}\right)P
+=\left(\begin{matrix}
+ I  &   D\\
+ I  &  -D\\
+\end{matrix}\right)
+\left(\begin{matrix}
+ F_{\frac{n}{2}}  & 			   \\
+                  & F_{\frac{n}{2}}\\
+\end{matrix}\right)
+P
+
+\end{align*},
+$$
+
+
+**时间复杂度**：设n阶傅里叶矩阵乘上一个列向量的时间复杂度为f(n),
+
+暂直观感知（以后如果对这个分析更准确了，再详细证明叭）：f(n)=2f(n/2)+O(n)
+
+=>**时间复杂度f(n)=nlogn**（原来为n*n)
+
+
+
+
+
+### 28、正定矩阵与最小值
+
