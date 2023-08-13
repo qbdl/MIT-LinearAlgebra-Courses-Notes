@@ -1,7 +1,9 @@
 # MIT-LinearAlgebra-Courses-Notes ![redis](https://img.shields.io/badge/qbdl-MIT%20LinearAlgebra%20Courses%20Notes-green?logo=Github)
-线性代数MIT课程个人学习笔记
+**MIT 18.06 Linear Algebra 线性代数课程个人学习笔记**
 
 参考[麻省理工公开课：线性代数](https://open.163.com/newview/movie/courseintro?newurl=%2Fspecial%2Fopencourse%2Fdaishu.html)课程以及[MIT-Linear-Algebra-Notes](https://github.com/MLNLP-World/MIT-Linear-Algebra-Notes)部分笔记内容，结合个人学习理解完成，目的在于对知识的总结与反刍。
+
+总学习时长约5000min。
 
 
 
@@ -13,7 +15,7 @@
 
 #### 使用说明：
 
-使用下面命令克隆笔记，详尽笔记见`线性代数MIT笔记.pdf`
+使用下面命令克隆笔记，详细笔记见`线性代数MIT笔记.pdf`
 
 ```powershell
 git clone https://github.com/qbdl/MIT-LinearAlgebra-Courses-Notes.git
